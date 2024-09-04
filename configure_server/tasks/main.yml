@@ -1,0 +1,45 @@
+---
+- name: Create users
+  import_tasks: create_users.yml
+  tags:
+    - configure
+
+- name: Give passwordless sudo
+  import_tasks: give_passwordless_sudo.yml
+  tags: 
+    - configure 
+   
+- name: Set username variable
+  import_tasks: username_var.yml
+  tags: 
+    - configure 
+   
+- name: Create special file in home directory
+  import_tasks: create_special_file.yml
+  tags: 
+    - configure 
+   
+- name: Create group
+  import_tasks: create_group.yml
+  tags: 
+    - configure 
+
+- name: Create /etc/test_shell directory
+  import_tasks: create_dir.yml
+  tags:
+    - configure
+
+- name: Change user passwords
+  import_tasks: change_pass.yml
+  tags: 
+    - configure 
+
+- name: Forbid ssh
+  import_tasks: forbid_ssh.yml
+  tags: 
+    - configure 
+
+- name: Undo everything
+  import_tasks: undo.yml
+  tags:
+    - undo

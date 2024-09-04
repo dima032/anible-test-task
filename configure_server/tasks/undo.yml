@@ -1,0 +1,67 @@
+---
+- name: Remove the users
+  ansible.builtin.user:
+    name: "{{ item }}"
+    state: absent
+  loop:
+    - user1
+    - user2
+    - user3
+  ignore_errors: yes
+  tags:
+    - undo
+
+- name: Remove orphaned home directories
+  file:
+    path: "/home/{{ item }}"
+    state: absent
+  loop:
+    - user1
+    - user2
+    - user3
+  tags: 
+    - undo
+
+- name: Remove sudo permissions for the users
+  ansible.builtin.lineinfile:
+    path: /etc/sudoers
+    regexp: '^{{ item }}'
+    state: absent
+  loop:
+    - 'user1'
+    - 'user2'
+    - 'user3'
+  tags:
+    - undo
+
+- name: Remove DenyUsers directive for specified users
+  ansible.builtin.lineinfile:
+    path: /etc/ssh/sshd_config
+    regexp: '^DenyUsers (user1|user2|user3)'
+    state: absent
+    validate: 'sshd -t -f %s'
+  tags: undo
+
+- name: Remove the group
+  ansible.builtin.group:
+    name: newgroup
+    state: absent
+  ignore_errors: yes
+  tags:
+    - undo
+
+- name: Remove the change_passwords.sh script
+  ansible.builtin.file:
+    path: /opt/change_passwords.sh
+    state: absent
+  tags:
+    - undo
+
+- name: Remove the directory /etc/test_shell
+  ansible.builtin.file:
+    path: /etc/test_shell
+    state: absent
+  ignore_errors: yes
+  tags:
+    - undo
+

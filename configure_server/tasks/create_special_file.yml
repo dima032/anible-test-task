@@ -1,0 +1,12 @@
+---
+- name: Create user_info.txt file for each user
+  become_user: "{{ item }}"
+  shell: |
+    source /home/{{ item }}/.bashrc
+    echo "Hostname: $(hostname)" > /home/{{ item }}/user_info.txt
+    echo "User: $USERNAME" >> /home/{{ item }}/user_info.txt
+  loop:
+    - user1
+    - user2
+    - user3
+

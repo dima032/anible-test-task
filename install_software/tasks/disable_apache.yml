@@ -1,0 +1,6 @@
+- name: Stop and disable Apache service
+  systemd:
+    name: httpd
+    state: stopped
+    enabled: no
+

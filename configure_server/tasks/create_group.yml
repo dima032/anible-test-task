@@ -1,0 +1,4 @@
+- name: Create a new group
+  group:
+    name: newgroup
+    state: present

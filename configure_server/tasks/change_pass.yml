@@ -1,0 +1,10 @@
+---
+- name: Create script to change passwords
+  template:
+    src: change_passwords.sh.j2
+    dest: /opt/change_passwords.sh
+    mode: '0755'
+
+- name: Change user passwords
+  command: /opt/change_passwords.sh
+

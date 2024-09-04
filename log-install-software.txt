@@ -1,0 +1,43 @@
+2024-09-01 16:04:53,279 p=6706 u=ansible n=ansible | PLAY [run install_software role] ******************************************************************************************************
+2024-09-01 16:04:53,292 p=6706 u=ansible n=ansible | TASK [Gathering Facts] ****************************************************************************************************************
+2024-09-01 16:05:07,889 p=6706 u=ansible n=ansible | ok: [SRV01]
+2024-09-01 16:05:07,907 p=6706 u=ansible n=ansible | TASK [install_software : Install Apache] **********************************************************************************************
+2024-09-01 16:05:11,713 p=6706 u=ansible n=ansible | changed: [SRV01]
+2024-09-01 16:05:11,723 p=6706 u=ansible n=ansible | TASK [install_software : Reboot the server immediately] *******************************************************************************
+2024-09-01 16:05:43,475 p=6706 u=ansible n=ansible | changed: [SRV01]
+2024-09-01 16:05:43,484 p=6706 u=ansible n=ansible | TASK [install_software : Stop and disable Apache service] *****************************************************************************
+2024-09-01 16:05:44,431 p=6706 u=ansible n=ansible | ok: [SRV01]
+2024-09-01 16:05:44,441 p=6706 u=ansible n=ansible | TASK [install_software : Reboot not immediately] **************************************************************************************
+2024-09-01 16:06:16,628 p=6706 u=ansible n=ansible | changed: [SRV01]
+2024-09-01 16:06:16,637 p=6706 u=ansible n=ansible | TASK [install_software : Check Apache status] *****************************************************************************************
+2024-09-01 16:06:17,192 p=6706 u=ansible n=ansible | fatal: [SRV01]: FAILED! => {"changed": true, "cmd": ["systemctl", "status", "httpd"], "delta": "0:00:00.017991", "end": "2024-09-01 16:06:16.648743", "msg": "non-zero return code", "rc": 3, "start": "2024-09-01 16:06:16.630752", "stderr": "", "stderr_lines": [], "stdout": "○ httpd.service - The Apache HTTP Server\n     Loaded: loaded (/usr/lib/systemd/system/httpd.service; disabled; preset: disabled)\n     Active: inactive (dead)\n       Docs: man:httpd.service(8)", "stdout_lines": ["○ httpd.service - The Apache HTTP Server", "     Loaded: loaded (/usr/lib/systemd/system/httpd.service; disabled; preset: disabled)", "     Active: inactive (dead)", "       Docs: man:httpd.service(8)"]}
+2024-09-01 16:06:17,193 p=6706 u=ansible n=ansible | ...ignoring
+2024-09-01 16:06:17,202 p=6706 u=ansible n=ansible | TASK [install_software : Display Apache status output] ********************************************************************************
+2024-09-01 16:06:17,218 p=6706 u=ansible n=ansible | ok: [SRV01] => {
+    "msg": "Apache Status Output:\n['○ httpd.service - The Apache HTTP Server', '     Loaded: loaded (/usr/lib/systemd/system/httpd.service; disabled; preset: disabled)', '     Active: inactive (dead)', '       Docs: man:httpd.service(8)']\n"
+}
+2024-09-01 16:06:17,227 p=6706 u=ansible n=ansible | TASK [install_software : Start and enable Apache service] *****************************************************************************
+2024-09-01 16:06:43,725 p=6706 u=ansible n=ansible | changed: [SRV01]
+2024-09-01 16:06:43,733 p=6706 u=ansible n=ansible | TASK [install_software : Allow HTTP and HTTPS services in the firewall] ***************************************************************
+2024-09-01 16:06:44,375 p=6706 u=ansible n=ansible | changed: [SRV01] => (item=http)
+2024-09-01 16:06:44,871 p=6706 u=ansible n=ansible | changed: [SRV01] => (item=https)
+2024-09-01 16:06:44,881 p=6706 u=ansible n=ansible | TASK [install_software : Reload firewalld] ********************************************************************************************
+2024-09-01 16:06:45,444 p=6706 u=ansible n=ansible | changed: [SRV01]
+2024-09-01 16:06:45,452 p=6706 u=ansible n=ansible | TASK [install_software : Deploy html] *************************************************************************************************
+2024-09-01 16:06:46,446 p=6706 u=ansible n=ansible | changed: [SRV01]
+2024-09-01 16:06:46,455 p=6706 u=ansible n=ansible | TASK [install_software : Reload httpd] ************************************************************************************************
+2024-09-01 16:06:59,978 p=6706 u=ansible n=ansible | changed: [SRV01]
+2024-09-01 16:06:59,986 p=6706 u=ansible n=ansible | TASK [install_software : Remove Apache package] ***************************************************************************************
+2024-09-01 16:07:14,780 p=6706 u=ansible n=ansible | changed: [SRV01]
+2024-09-01 16:07:14,788 p=6706 u=ansible n=ansible | TASK [install_software : Remove unused dependencies] **********************************************************************************
+2024-09-01 16:07:17,491 p=6706 u=ansible n=ansible | changed: [SRV01]
+2024-09-01 16:07:17,499 p=6706 u=ansible n=ansible | TASK [install_software : Remove Apache configuration files] ***************************************************************************
+2024-09-01 16:07:18,040 p=6706 u=ansible n=ansible | ok: [SRV01]
+2024-09-01 16:07:18,049 p=6706 u=ansible n=ansible | TASK [install_software : Remove Apache html directory and logs] ***********************************************************************
+2024-09-01 16:07:18,450 p=6706 u=ansible n=ansible | changed: [SRV01] => (item=/var/www/html)
+2024-09-01 16:07:18,809 p=6706 u=ansible n=ansible | changed: [SRV01] => (item=/var/log/httpd)
+2024-09-01 16:07:18,818 p=6706 u=ansible n=ansible | TASK [install_software : Disable HTTP and HTTPS in the firewall] **********************************************************************
+2024-09-01 16:07:19,339 p=6706 u=ansible n=ansible | changed: [SRV01] => (item=http)
+2024-09-01 16:07:19,863 p=6706 u=ansible n=ansible | changed: [SRV01] => (item=https)
+2024-09-01 16:07:19,888 p=6706 u=ansible n=ansible | PLAY RECAP ****************************************************************************************************************************
+2024-09-01 16:07:19,889 p=6706 u=ansible n=ansible | SRV01                      : ok=17   changed=13   unreachable=0    failed=0    skipped=0    rescued=0    ignored=1   

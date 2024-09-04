@@ -1,0 +1,32 @@
+- name: Remove Apache package
+  dnf:
+    name: httpd
+    state: absent
+
+- name: Remove unused dependencies
+  command: dnf autoremove -y      
+
+- name: Remove Apache configuration files
+  file:
+    path: /etc/httpd
+    state: absent
+
+- name: Remove Apache html directory and logs
+  file:
+    path: "{{ item }}"
+    state: absent
+  loop:
+    - /var/www/html
+    - /var/log/httpd
+
+- name: Disable HTTP and HTTPS in the firewall
+  firewalld:
+    service: "{{ item }}"
+    state: disabled
+    permanent: yes
+    immediate: yes
+  loop:
+    - http
+    - https
+
+

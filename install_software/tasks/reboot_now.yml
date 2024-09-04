@@ -1,0 +1,4 @@
+- name: Reboot the server immediately
+  reboot:
+    msg: "Reboot initiated by Ansible"
+

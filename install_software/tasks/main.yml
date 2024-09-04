@@ -1,0 +1,27 @@
+---
+- name: Install Apache
+  import_tasks: install_apache.yml
+
+- name: Reboot now
+  import_tasks: reboot_now.yml
+
+- name: Disable Apache
+  import_tasks: disable_apache.yml
+
+- name: Reboot not now
+  import_tasks: reboot_not_now.yml
+
+- name: Check Apache status
+  import_tasks: apache_status.yml
+
+- name: Enable Apache
+  import_tasks: enable_apache.yml
+
+- name: Allow HTTP and HTTPS in firewall
+  import_tasks: firewalld_allow_http.yml
+
+- name: Deploy HTML page
+  import_tasks: html_page.yml
+
+- name: Undo 
+  import_tasks: undo.yml

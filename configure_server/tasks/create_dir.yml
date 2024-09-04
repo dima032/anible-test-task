@@ -1,0 +1,8 @@
+- name: Create /etc/test_shell directory with group permissions
+  file:
+    path: /etc/test_shell
+    state: directory
+    owner: root
+    group: newgroup
+    mode: '0770'
+

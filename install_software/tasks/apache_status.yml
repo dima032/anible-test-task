@@ -1,0 +1,12 @@
+---
+- name: Check Apache status
+  command: systemctl status httpd
+  register: httpd_status
+  ignore_errors: yes
+
+- name: Display Apache status output
+  debug:
+    msg: |
+      Apache Status Output:
+      {{ httpd_status.stdout_lines }}
+

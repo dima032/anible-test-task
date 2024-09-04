@@ -1,0 +1,5 @@
+- name: Reboot not immediately
+  reboot:
+    msg: "Reboot initiated by Ansible"
+    reboot_timeout: 600
+

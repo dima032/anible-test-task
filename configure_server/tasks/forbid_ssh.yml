@@ -1,0 +1,13 @@
+---
+- name: Add DenyUsers entry in sshd_config
+  lineinfile:
+    path: /etc/ssh/sshd_config
+    regexp: '^DenyUsers'
+    line: "DenyUsers user1 user2 user3"
+    validate: 'sshd -t -f %s'
+
+- name: Restart sshd
+  systemd:
+    name: sshd
+    state: restarted
+    enabled: yes

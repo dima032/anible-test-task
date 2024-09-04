@@ -1,0 +1,6 @@
+---
+users_password_hashes:
+  user1: '$6$OXkxtJBI1d6P8ImO$3L8v0/Zhq22oTJ/gCNL6fHDhByH8Oongq8EgoHZzVZ3TzWHYNfF1wPpeZxKEM1TEQijSnz/f1gnaV1AaLxipD1'
+  user2: '$6$ogJF0pu5a9Rw47vy$lkj2IKZKcvMJj1g3DwX.KtUultfgt99aQ/Hax7wRFiX5hZ2KCC3ndpDMSp4hV6EnymmzTRskof/2OKg8Me5Qq1'
+  user3: '$6$ZBlkVoWxdNwvjh7v$cSzHzdcGec519IHncC0LqvJ67FV5EhWlKRcs/iLpD9oY39yUQuEKOIMCTkbgrYdXHJsP03d6K2rvT.Z4nPFkp.'
+

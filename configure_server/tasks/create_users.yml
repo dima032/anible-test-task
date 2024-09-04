@@ -1,0 +1,9 @@
+- name: Create users
+  user:
+    name: "{{ item }}"
+    state: present
+    shell: /bin/bash
+  loop:
+    - user1
+    - user2
+    - user3

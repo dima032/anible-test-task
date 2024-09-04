@@ -1,0 +1,10 @@
+
+- name: Set environment variable for each user to display username
+  lineinfile:
+    path: "/home/{{ item }}/.bashrc"
+    line: 'export USERNAME={{ item }}'
+    create: yes
+  loop:
+    - user1
+    - user2
+    - user3

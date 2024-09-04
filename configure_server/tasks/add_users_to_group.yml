@@ -1,0 +1,9 @@
+- name: Add users to the new group
+  user:
+    name: "{{ item }}"
+    groups: newgroup
+    append: yes
+  loop:
+    - user1
+    - user2
+    - user3

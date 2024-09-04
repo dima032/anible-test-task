@@ -1,0 +1,90 @@
+
+2024-09-02 16:41:42,204 p=141822 u=dmitry n=ansible | PLAY [run configure_server role] *******************************************************
+2024-09-02 16:41:42,214 p=141822 u=dmitry n=ansible | TASK [Gathering Facts] *****************************************************************
+2024-09-02 16:41:43,672 p=141822 u=dmitry n=ansible | [WARNING]: Platform linux on host SRV01 is using the discovered Python interpreter at
+/usr/bin/python3.9, but future installation of another Python interpreter could change
+the meaning of that path. See https://docs.ansible.com/ansible-
+core/2.17/reference_appendices/interpreter_discovery.html for more information.
+
+2024-09-02 16:41:43,672 p=141822 u=dmitry n=ansible | ok: [SRV01]
+2024-09-02 16:41:43,681 p=141822 u=dmitry n=ansible | TASK [configure_server : Create users] *************************************************
+2024-09-02 16:41:44,307 p=141822 u=dmitry n=ansible | changed: [SRV01] => (item=user1)
+2024-09-02 16:41:44,900 p=141822 u=dmitry n=ansible | changed: [SRV01] => (item=user2)
+2024-09-02 16:41:45,416 p=141822 u=dmitry n=ansible | changed: [SRV01] => (item=user3)
+2024-09-02 16:41:45,421 p=141822 u=dmitry n=ansible | TASK [configure_server : Add users to sudoers with no password prompt] *****************
+2024-09-02 16:41:45,822 p=141822 u=dmitry n=ansible | changed: [SRV01] => (item=user1)
+2024-09-02 16:41:46,137 p=141822 u=dmitry n=ansible | changed: [SRV01] => (item=user2)
+2024-09-02 16:41:46,449 p=141822 u=dmitry n=ansible | changed: [SRV01] => (item=user3)
+2024-09-02 16:41:46,453 p=141822 u=dmitry n=ansible | TASK [configure_server : Set environment variable for each user to display username] ***
+2024-09-02 16:41:46,770 p=141822 u=dmitry n=ansible | changed: [SRV01] => (item=user1)
+2024-09-02 16:41:47,074 p=141822 u=dmitry n=ansible | changed: [SRV01] => (item=user2)
+2024-09-02 16:41:47,385 p=141822 u=dmitry n=ansible | changed: [SRV01] => (item=user3)
+2024-09-02 16:41:47,389 p=141822 u=dmitry n=ansible | TASK [configure_server : Create user_info.txt file for each user] **********************
+2024-09-02 16:41:47,816 p=141822 u=dmitry n=ansible | changed: [SRV01] => (item=user1)
+2024-09-02 16:41:48,144 p=141822 u=dmitry n=ansible | changed: [SRV01] => (item=user2)
+2024-09-02 16:41:48,469 p=141822 u=dmitry n=ansible | changed: [SRV01] => (item=user3)
+2024-09-02 16:41:48,469 p=141822 u=dmitry n=ansible | [WARNING]: Module remote_tmp /home/user1/.ansible/tmp did not exist and was created
+with a mode of 0700, this may cause issues when running as another user. To avoid this,
+create the remote_tmp dir with the correct permissions manually
+
+2024-09-02 16:41:48,469 p=141822 u=dmitry n=ansible | [WARNING]: Module remote_tmp /home/user2/.ansible/tmp did not exist and was created
+with a mode of 0700, this may cause issues when running as another user. To avoid this,
+create the remote_tmp dir with the correct permissions manually
+
+2024-09-02 16:41:48,470 p=141822 u=dmitry n=ansible | [WARNING]: Module remote_tmp /home/user3/.ansible/tmp did not exist and was created
+with a mode of 0700, this may cause issues when running as another user. To avoid this,
+create the remote_tmp dir with the correct permissions manually
+
+2024-09-02 16:41:48,473 p=141822 u=dmitry n=ansible | TASK [configure_server : Create a new group] *******************************************
+2024-09-02 16:41:48,944 p=141822 u=dmitry n=ansible | changed: [SRV01]
+2024-09-02 16:41:48,949 p=141822 u=dmitry n=ansible | TASK [configure_server : Create /etc/test_shell directory with group permissions] ******
+2024-09-02 16:41:49,344 p=141822 u=dmitry n=ansible | changed: [SRV01]
+2024-09-02 16:41:49,349 p=141822 u=dmitry n=ansible | TASK [configure_server : Create script to change passwords] ****************************
+2024-09-02 16:41:50,091 p=141822 u=dmitry n=ansible | changed: [SRV01]
+2024-09-02 16:41:50,095 p=141822 u=dmitry n=ansible | TASK [configure_server : Change user passwords] ****************************************
+2024-09-02 16:41:50,581 p=141822 u=dmitry n=ansible | changed: [SRV01]
+2024-09-02 16:41:50,586 p=141822 u=dmitry n=ansible | TASK [configure_server : Add DenyUsers entry in sshd_config] ***************************
+2024-09-02 16:41:50,912 p=141822 u=dmitry n=ansible | changed: [SRV01]
+2024-09-02 16:41:50,916 p=141822 u=dmitry n=ansible | TASK [configure_server : Restart sshd] *************************************************
+2024-09-02 16:41:51,576 p=141822 u=dmitry n=ansible | changed: [SRV01]
+2024-09-02 16:41:51,591 p=141822 u=dmitry n=ansible | PLAY RECAP *****************************************************************************
+2024-09-02 16:41:51,591 p=141822 u=dmitry n=ansible | SRV01                      : ok=11   changed=10   unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+
+
+
+
+
+
+
+
+
+2024-09-02 16:42:12,026 p=142238 u=dmitry n=ansible | PLAY [run configure_server role] *******************************************************
+2024-09-02 16:42:12,039 p=142238 u=dmitry n=ansible | TASK [Gathering Facts] *****************************************************************
+2024-09-02 16:42:13,092 p=142238 u=dmitry n=ansible | [WARNING]: Platform linux on host SRV01 is using the discovered Python interpreter at
+/usr/bin/python3.9, but future installation of another Python interpreter could change
+the meaning of that path. See https://docs.ansible.com/ansible-
+core/2.17/reference_appendices/interpreter_discovery.html for more information.
+
+2024-09-02 16:42:13,092 p=142238 u=dmitry n=ansible | ok: [SRV01]
+2024-09-02 16:42:13,101 p=142238 u=dmitry n=ansible | TASK [configure_server : Remove the users] *********************************************
+2024-09-02 16:42:13,744 p=142238 u=dmitry n=ansible | changed: [SRV01] => (item=user1)
+2024-09-02 16:42:14,242 p=142238 u=dmitry n=ansible | changed: [SRV01] => (item=user2)
+2024-09-02 16:42:14,764 p=142238 u=dmitry n=ansible | changed: [SRV01] => (item=user3)
+2024-09-02 16:42:14,769 p=142238 u=dmitry n=ansible | TASK [configure_server : Remove orphaned home directories] *****************************
+2024-09-02 16:42:15,162 p=142238 u=dmitry n=ansible | changed: [SRV01] => (item=user1)
+2024-09-02 16:42:15,469 p=142238 u=dmitry n=ansible | changed: [SRV01] => (item=user2)
+2024-09-02 16:42:15,778 p=142238 u=dmitry n=ansible | changed: [SRV01] => (item=user3)
+2024-09-02 16:42:15,783 p=142238 u=dmitry n=ansible | TASK [configure_server : Remove sudo permissions for the users] ************************
+2024-09-02 16:42:16,180 p=142238 u=dmitry n=ansible | changed: [SRV01] => (item=user1)
+2024-09-02 16:42:16,499 p=142238 u=dmitry n=ansible | changed: [SRV01] => (item=user2)
+2024-09-02 16:42:16,812 p=142238 u=dmitry n=ansible | changed: [SRV01] => (item=user3)
+2024-09-02 16:42:16,816 p=142238 u=dmitry n=ansible | TASK [configure_server : Remove DenyUsers directive for specified users] ***************
+2024-09-02 16:42:17,147 p=142238 u=dmitry n=ansible | changed: [SRV01]
+2024-09-02 16:42:17,152 p=142238 u=dmitry n=ansible | TASK [configure_server : Remove the group] *********************************************
+2024-09-02 16:42:17,618 p=142238 u=dmitry n=ansible | changed: [SRV01]
+2024-09-02 16:42:17,621 p=142238 u=dmitry n=ansible | TASK [configure_server : Remove the change_passwords.sh script] ************************
+2024-09-02 16:42:17,933 p=142238 u=dmitry n=ansible | changed: [SRV01]
+2024-09-02 16:42:17,937 p=142238 u=dmitry n=ansible | TASK [configure_server : Remove the directory /etc/test_shell] *************************
+2024-09-02 16:42:18,254 p=142238 u=dmitry n=ansible | changed: [SRV01]
+2024-09-02 16:42:18,270 p=142238 u=dmitry n=ansible | PLAY RECAP *****************************************************************************
+2024-09-02 16:42:18,270 p=142238 u=dmitry n=ansible | SRV01                      : ok=8    changed=7    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   

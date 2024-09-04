@@ -1,0 +1,14 @@
+- name: Allow HTTP and HTTPS services in the firewall
+  firewalld:
+    service: "{{ item }}"
+    permanent: yes
+    state: enabled
+  with_items:
+    - http
+    - https
+
+- name: Reload firewalld
+  systemd:
+    name: firewalld
+    state: reloaded
+
