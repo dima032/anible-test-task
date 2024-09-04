@@ -1,6 +1,6 @@
 ---
 - name: Remove the users
-  ansible.builtin.user:
+  user:
     name: "{{ item }}"
     state: absent
   loop:
@@ -23,7 +23,7 @@
     - undo
 
 - name: Remove sudo permissions for the users
-  ansible.builtin.lineinfile:
+  lineinfile:
     path: /etc/sudoers
     regexp: '^{{ item }}'
     state: absent
@@ -35,7 +35,7 @@
     - undo
 
 - name: Remove DenyUsers directive for specified users
-  ansible.builtin.lineinfile:
+  lineinfile:
     path: /etc/ssh/sshd_config
     regexp: '^DenyUsers (user1|user2|user3)'
     state: absent
@@ -43,7 +43,7 @@
   tags: undo
 
 - name: Remove the group
-  ansible.builtin.group:
+  group:
     name: newgroup
     state: absent
   ignore_errors: yes
@@ -51,14 +51,14 @@
     - undo
 
 - name: Remove the change_passwords.sh script
-  ansible.builtin.file:
+  file:
     path: /opt/change_passwords.sh
     state: absent
   tags:
     - undo
 
 - name: Remove the directory /etc/test_shell
-  ansible.builtin.file:
+  file:
     path: /etc/test_shell
     state: absent
   ignore_errors: yes
